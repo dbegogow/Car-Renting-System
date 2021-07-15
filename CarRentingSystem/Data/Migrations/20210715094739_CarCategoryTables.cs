@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarRentingSystem.Data.Migrations
 {
-    public partial class CarAndCategoryTables : Migration
+    public partial class CarCategoryTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
