@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using CarRentingSystem.Services.Cars;
 using CarRentingSystem.Infrastructure;
 using Microsoft.Extensions.Configuration;
+using CarRentingSystem.Services.Statistics;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CarRentingSystem
@@ -23,8 +25,7 @@ namespace CarRentingSystem
                 .AddDbContext<CarRentingDbContext>(options => options
                     .UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection")));
 
-            services
-                .AddDatabaseDeveloperPageExceptionFilter();
+            services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.
                 AddDefaultIdentity<IdentityUser>(options =>
@@ -36,8 +37,10 @@ namespace CarRentingSystem
                 })
                 .AddEntityFrameworkStores<CarRentingDbContext>();
 
-            services
-                .AddControllersWithViews();
+            services.AddControllersWithViews();
+
+            services.AddTransient<IStatisticsService, StatisticsService>();
+            services.AddTransient<ICarService, CarService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
