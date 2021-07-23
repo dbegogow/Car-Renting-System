@@ -1,7 +1,5 @@
 ﻿using System.Linq;
-using System.Diagnostics;
 using CarRentingSystem.Data;
-using CarRentingSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using CarRentingSystem.Models.Home;
 using CarRentingSystem.Services.Statistics;
@@ -51,8 +49,7 @@ namespace CarRentingSystem.Controllers
             });
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
-            => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            => View();
     }
 }
