@@ -4,7 +4,7 @@ namespace CarRentingSystem.Infrastructure
 {
     public static class ClaimsPrincipalsExtensions
     {
-        public static string GetId(this ClaimsPrincipal user)
+        public static string Id(this ClaimsPrincipal user)
             => user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
     }
 }

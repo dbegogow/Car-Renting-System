@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CarRentingSystem.Services.Cars;
 using CarRentingSystem.Infrastructure;
+using CarRentingSystem.Services.Dealers;
 using Microsoft.Extensions.Configuration;
 using CarRentingSystem.Services.Statistics;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,8 +44,9 @@ namespace CarRentingSystem
                 options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
             });
 
-            services.AddTransient<IStatisticsService, StatisticsService>();
             services.AddTransient<ICarService, CarService>();
+            services.AddTransient<IDealerService, DealerService>();
+            services.AddTransient<IStatisticsService, StatisticsService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
