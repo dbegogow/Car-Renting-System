@@ -4,14 +4,16 @@ using CarRentingSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarRentingSystem.Data.Migrations
 {
     [DbContext(typeof(CarRentingDbContext))]
-    partial class CarRentingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210724200117_UserFullNameColumn")]
+    partial class UserFullNameColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

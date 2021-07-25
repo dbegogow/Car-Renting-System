@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CarRentingSystem.Data
 {
-    public class CarRentingDbContext : IdentityDbContext
+    public class CarRentingDbContext : IdentityDbContext<User>
     {
         public CarRentingDbContext(DbContextOptions<CarRentingDbContext> options)
             : base(options)
@@ -36,7 +36,7 @@ namespace CarRentingSystem.Data
 
             builder
                 .Entity<Dealer>()
-                .HasOne<IdentityUser>()
+                .HasOne<User>()
                 .WithOne()
                 .HasForeignKey<Dealer>(d => d.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
