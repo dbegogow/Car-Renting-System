@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-using static CarRentingSystem.WebConstants;
+using static CarRentingSystem.Areas.Admin.AdminConstants;
 
 namespace CarRentingSystem.Infrastructure
 {

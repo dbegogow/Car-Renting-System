@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-using static CarRentingSystem.WebConstants;
+using static CarRentingSystem.Areas.Admin.AdminConstants;
 
 namespace CarRentingSystem.Infrastructure
 {
