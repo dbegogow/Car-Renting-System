@@ -41,6 +41,8 @@ namespace CarRentingSystem
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<CarRentingDbContext>();
 
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddControllersWithViews(options =>
             {
                 options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();

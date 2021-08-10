@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CarRentingSystem.Services.Cars
+namespace CarRentingSystem.Services.Cars.Models
 {
     public class CarQueryServiceModel
     {

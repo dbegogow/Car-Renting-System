@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using CarRentingSystem.Services.Cars;
 using System.ComponentModel.DataAnnotations;
-
+using CarRentingSystem.Services.Cars.Models;
 using static CarRentingSystem.Data.DataConstants.Car;
 
 namespace CarRentingSystem.Models.Cars
