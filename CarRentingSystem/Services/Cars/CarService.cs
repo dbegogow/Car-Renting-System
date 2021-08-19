@@ -70,6 +70,14 @@ namespace CarRentingSystem.Services.Cars
             };
         }
 
+        public IEnumerable<LatestCarServiceModel> Latest()
+            => this.data
+                .Cars
+                .OrderByDescending(c => c.Id)
+                .ProjectTo<LatestCarServiceModel>(this.mapper)
+                .Take(3)
+                .ToList();
+
         public CarDetailsServiceModel Details(int carId)
             => this.data
                 .Cars
