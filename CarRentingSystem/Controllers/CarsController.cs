@@ -6,6 +6,8 @@ using CarRentingSystem.Infrastructure;
 using CarRentingSystem.Services.Dealers;
 using Microsoft.AspNetCore.Authorization;
 
+using static CarRentingSystem.WebConstants;
+
 namespace CarRentingSystem.Controllers
 {
     public class CarsController : Controller
@@ -98,6 +100,8 @@ namespace CarRentingSystem.Controllers
                 car.CategoryId,
                 dealerId);
 
+            TempData[GlobalMessageKey] = "Your car was added!";
+
             return RedirectToAction(nameof(All));
         }
 
@@ -162,6 +166,8 @@ namespace CarRentingSystem.Controllers
                  car.ImageUrl,
                  car.Year,
                  car.CategoryId);
+
+            TempData[GlobalMessageKey] = "You car was edited!";
 
             return RedirectToAction(nameof(All));
         }
