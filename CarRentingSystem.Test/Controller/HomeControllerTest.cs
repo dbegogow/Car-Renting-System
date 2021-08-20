@@ -25,7 +25,7 @@ namespace CarRentingSystem.Test.Controller
                     .WithData(GetCars()))
                 .ShouldReturn()
                 .View(view => view
-                    .WithModelOfType<IEnumerable<LatestCarServiceModel>>()
+                    .WithModelOfType<List<LatestCarServiceModel>>()
                     .Passing(m => m.Should().HaveCount(3)));
 
         //[Fact]

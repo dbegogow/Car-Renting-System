@@ -79,6 +79,12 @@ namespace CarRentingSystem
                 .UseEndpoints(endpoints =>
                 {
                     endpoints.MapDefaultAreaRoute();
+
+                    endpoints.MapControllerRoute(
+                        name: "Car Details",
+                        pattern: "/Cars/Details/{id}/{information}",
+                        defaults: new { controller = "Cars", action = "Details" });
+
                     endpoints.MapDefaultControllerRoute();
                     endpoints.MapRazorPages();
                 });

@@ -22,8 +22,9 @@ namespace CarRentingSystem.Data.Models
         [Required]
         public string ImageUrl { get; set; }
 
-        [Required]
         public int Year { get; set; }
+
+        public bool IsPublic { get; set; }
 
         public int CategoryId { get; set; }
 

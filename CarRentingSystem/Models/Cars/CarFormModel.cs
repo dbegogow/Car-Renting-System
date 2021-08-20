@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CarRentingSystem.Services.Cars.Models;
+
 using static CarRentingSystem.Data.DataConstants.Car;
 
 namespace CarRentingSystem.Models.Cars
 {
-    public class CarFormModel
+    public class CarFormModel : ICarModel
     {
         [Required]
         [StringLength(BrandMaxLength, MinimumLength = BrandMinLength)]

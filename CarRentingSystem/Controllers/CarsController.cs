@@ -53,6 +53,19 @@ namespace CarRentingSystem.Controllers
             return View(myCars);
         }
 
+        public IActionResult Details(int id, string information)
+        {
+            var car = this.cars
+                .Details(id);
+
+            if (information != car.GetInformation())
+            {
+                return BadRequest();
+            }
+
+            return View(car);
+        }
+
         [Authorize]
         public IActionResult Add()
         {
@@ -91,7 +104,7 @@ namespace CarRentingSystem.Controllers
                 return View(car);
             }
 
-            this.cars.Create(
+            var carId = this.cars.Create(
                 car.Brand,
                 car.Model,
                 car.Description,
@@ -100,9 +113,9 @@ namespace CarRentingSystem.Controllers
                 car.CategoryId,
                 dealerId);
 
-            TempData[GlobalMessageKey] = "Your car was added!";
+            TempData[GlobalMessageKey] = "Your car was added and it is awaiting for approval!";
 
-            return RedirectToAction(nameof(All));
+            return RedirectToAction(nameof(Details), new { id = carId, information = car.GetInformation() });
         }
 
         [Authorize]
@@ -165,11 +178,12 @@ namespace CarRentingSystem.Controllers
                  car.Description,
                  car.ImageUrl,
                  car.Year,
-                 car.CategoryId);
+                 car.CategoryId,
+                 this.User.IsAdmin());
 
-            TempData[GlobalMessageKey] = "You car was edited!";
+            TempData[GlobalMessageKey] = $"You car was edited {(this.User.IsAdmin() ? string.Empty : "and is waiting for approval")}!";
 
-            return RedirectToAction(nameof(All));
+            return RedirectToAction(nameof(Details), new { id, information = car.GetInformation() });
         }
     }
 }
